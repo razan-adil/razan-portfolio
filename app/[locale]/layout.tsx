@@ -7,6 +7,7 @@ import '@fontsource-variable/bricolage-grotesque';
 import '@fontsource/ibm-plex-sans-arabic/400.css';
 import '@fontsource/ibm-plex-sans-arabic/500.css';
 import '@fontsource/ibm-plex-sans-arabic/700.css';
+import 'lenis/dist/lenis.css';
 import '@/app/globals.css';
 export { metadata, viewport } from '@/lib/metadata';
 export function generateStaticParams() { return [{ locale: 'en' }, { locale: 'ar' }]; }

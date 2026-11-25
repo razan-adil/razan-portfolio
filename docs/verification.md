@@ -11,3 +11,14 @@ This file records checks that were actually run. Do not interpret source review 
 - Desktop/mobile screenshots of this implementation, visual parity comparison, interactive filter/swipe/navigation checks and performance measurements: not yet verified in a browser.
 
 Project content and media provenance are recorded in `sources-research.md`.
+
+## Published release
+
+- Production: https://razan-portfolio-kappa.vercel.app
+- Source: https://github.com/razan-adil/razan-portfolio
+- Public production alias returns HTTP 200 without authentication.
+- The 5 HTTP test groups also passed against the public production site (all 24 localized pages).
+- Production sitemap and social image use the correct Vercel production domain.
+- 16 public JavaScript, stylesheet and image endpoints were checked, including Next.js image optimization.
+- npm production dependency audit: 0 reported vulnerabilities.
+- The initial automatic GitHub/Vercel connection attempt failed; CLI deployment works. Automatic deployments on push are not claimed.

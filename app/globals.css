@@ -163,6 +163,8 @@ p{text-wrap:pretty}
 .registration-corners i:nth-child(1){top:-6px;left:-6px}.registration-corners i:nth-child(2){top:-6px;right:-6px}.registration-corners i:nth-child(3){bottom:-6px;left:-6px}.registration-corners i:nth-child(4){bottom:-6px;right:-6px}
 .card-hover-label{position:absolute;inset:0;display:flex;justify-content:center;align-items:center;font-size:.8125rem;opacity:0;transition:opacity .35s;background:#17131030;color:#fff;text-shadow:0 1px 10px #000}
 .card-hover-label::before{content:'';position:absolute;width:6.5rem;height:6.5rem;border-radius:50%;background:#201610e8;z-index:-1}
+.card-hover-label{isolation:isolate}
+.visual-dashboard>.visual-label{color:#efd8b0}
 .card-link:hover .card-hover-label{opacity:1}
 .gallery-caption{display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.3rem;margin-top:.5rem;min-height:10.5rem}
 .gallery-navigation{display:flex;align-items:center;gap:1rem;order:2;direction:ltr;font-size:.8125rem}

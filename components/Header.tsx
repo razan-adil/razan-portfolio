@@ -44,7 +44,7 @@ export default function Header({locale}: {locale:Locale}) {
       <Link className="language-switch" href={otherPath} hrefLang={ar?'en':'ar'} lang={ar?'en':'ar'} aria-label={ar?'Switch to English':'التبديل إلى العربية'}>{ar?'EN':'عربي'}</Link>
       <button ref={toggleRef} className="menu-toggle" aria-expanded={open} aria-controls={open?'mobile-menu':undefined} onClick={()=>setOpen(!open)}>{open ? (ar?'إغلاق':'Close') : (ar?'القائمة':'Menu')}<span aria-hidden className={open?'menu-icon open':'menu-icon'}><i/><i/></span></button>
     </div>
-    {open && <nav id="mobile-menu" className="mobile-nav" aria-label={ar?'القائمة':'Menu'}>
+    {open && <nav id="mobile-menu" className="mobile-nav" data-lenis-prevent aria-label={ar?'القائمة':'Menu'}>
       {(['work','about','contact'] as const).map((item,i)=><Link key={item} href={`/${locale}/${item}`}>{(ar?['الأعمال','عنّي','تواصل']:['Work','About','Contact'])[i]}</Link>)}
       <Link className="mobile-beyond" href={`/${locale}/beyond`}>{ar?'خارج إطار المشاريع':'Beyond Projects'}</Link>
       <span>Jeddah, Saudi Arabia</span>
