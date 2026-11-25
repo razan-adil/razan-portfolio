@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export default function NotFound(){return <main id="main" className="not-found"><Link className="wordmark" href="/en">razan✳</Link><p className="eyebrow">A SMALL DETOUR · مسار آخر</p><h1>404.</h1><p>This page took a different path. Find your way back to the work.<br/><span lang="ar" dir="rtl">هذه الصفحة غير موجودة. يمكنك العودة إلى الأعمال.</span></p><Link className="text-link" href="/en/work">Explore the work<span className="link-dot" aria-hidden/></Link></main>}

@@ -1,0 +1,15 @@
+node_modules/
+.next/
+out/
+.npm-cache/
+.env*
+.vercel/
+*.tsbuildinfo
+artifacts/
+.local/
+.public-repos.json
+.reference-*
+reference-analysis.md
+
+.vercel
+.env*
