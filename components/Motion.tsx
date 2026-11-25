@@ -18,7 +18,8 @@ export default function Motion({children,locale}: {children:React.ReactNode;loca
     let tick:((time:number)=>void)|undefined;
     mm.add('(prefers-reduced-motion: no-preference)',()=> {
       const ctx=gsap.context(()=> {
-        gsap.fromTo('[data-reveal]',{y:32,opacity:0},{y:0,opacity:1,duration:.9,stagger:.09,ease:'power3.out',clearProps:'transform,opacity'});
+        const reveals=ref.current?.querySelectorAll('[data-reveal]');
+        if(reveals?.length) gsap.fromTo(reveals,{y:32,opacity:0},{y:0,opacity:1,duration:.9,stagger:.09,ease:'power3.out',clearProps:'transform,opacity'});
         gsap.utils.toArray<HTMLElement>('[data-scroll-reveal]').forEach(el=> {
           gsap.fromTo(el,{y:45,opacity:0},{y:0,opacity:1,duration:.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 91%',once:true},clearProps:'transform,opacity'});
         });

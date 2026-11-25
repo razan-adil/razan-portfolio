@@ -19,7 +19,11 @@ npm run build
 npm start
 ```
 
-With the production server running, `npm test` checks the actual HTTP output of all 24 localized pages, document language and direction, page landmarks, attribution, public media and 404 responses. `TEST_BASE_URL` can target a deployed site. These checks do not substitute for visual browser or interaction testing.
+With the production server running, `npm test` checks the actual HTTP output of all 24 localized pages, document language and direction, page landmarks, attribution, public media and 404 responses. `TEST_BASE_URL` can target a deployed site.
+
+After `npm run build`, run `npm run test:browser` for Playwright checks of desktop/mobile navigation, filters, gallery/grid, mouse drag and touch swipe, language switching, 320–1440px layouts, contact links and reduced motion. The suite uses an isolated installed Edge on Windows; on other platforms install Chromium with `npx playwright install chromium`. It starts a production preview if none is running.
+
+With a preview server running, `npm run screenshots` captures the home, work, Jobs case study, contact page and yellow contact section in both languages on desktop and mobile. Set `TEST_BASE_URL` to capture the published site. Captures wait for fonts, visible images and entrance/scroll animations; screenshots and reports are saved under ignored `artifacts/`.
 
 ## Implementation
 
@@ -36,7 +40,7 @@ With the production server running, `npm test` checks the actual HTTP output of 
 
 Approved bilingual content lives in `lib/content.ts`. The source ledger is `docs/sources-research.md`.
 
-DClean screenshots come from its public repository and show fictional demonstration data. Other project covers are original editorial illustrations, explicitly labeled as covers. They are not screenshots or fabricated product interfaces. The leadership assessment link opens the **original product**, not Razan's redesign. Individual contributions and team ownership are distinguished in each case study. No internal employer records are included.
+The Jobs case study retains its editorial cover and adds real public captures of the opportunities board and opportunity details, each explaining Razan's front-end contribution. DClean screenshots come from its public repository and show fictional demonstration data. Road Accident Severity Classification includes a verbatim, attributed preprocessing excerpt from the public team repository. Editorial covers remain explicitly labeled and are not fabricated product interfaces. The leadership assessment link opens the **original product**, not Razan's redesign. Individual contributions and team ownership are distinguished in each case study. No internal employer records are included. See `docs/media-needed.md` for the remaining real media.
 
 Font packages carry their original open-source license notices in `node_modules/@fontsource*`.
 

@@ -1,24 +1,28 @@
-# Delivery verification
+# Delivery verification — 26 November 2026
 
-This file records checks that were actually run. Do not interpret source review or HTTP checks as browser interaction tests.
+Production: https://razan-portfolio-kappa.vercel.app  
+Source: https://github.com/razan-adil/razan-portfolio
 
-- Production build: passed after localized root layouts, headings and accessibility corrections.
-- TypeScript: passed as part of the production build.
-- HTTP smoke checks: passed all 5 groups against the production server: 24 localized pages, initial document language/direction, project attribution, media/security headers and 404 responses.
-- Independent source review: identified and corrected mobile menu breakpoint handling, carousel keyboard focus, RTL control direction, footer focus contrast and drag click propagation.
-- Reference: public desktop/mobile teaser screenshots and route text inspected. Reference code and protected project assets were not reused.
-- Browser restriction: the browser access host was unavailable. Native browser control then stopped because it could not determine the current browser URL with enough confidence to enforce policy. No alternative browser automation is being used to bypass that restriction.
-- Desktop/mobile screenshots of this implementation, visual parity comparison, interactive filter/swipe/navigation checks and performance measurements: not yet verified in a browser.
+## Actual checks
 
-Project content and media provenance are recorded in `sources-research.md`.
+- Production build and TypeScript passed after the changes.
+- All 5 HTTP test groups passed: 24 localized pages, document language/direction, project attribution, public media/security headers and 404 responses.
+- Playwright used isolated headless Microsoft Edge contexts after the user explicitly authorized this method. The native browser connector remained unavailable; browser testing was not skipped.
+- The full local production-browser suite passed 19 tests, with one desktop instance of the mobile-menu test skipped as inapplicable.
+- EN/AR layouts checked at 320, 375, 414, 768, 1024, 1280 and 1440px. The mobile menu was additionally checked at 844×390 in landscape.
+- Actual browser actions covered every project filter, gallery/grid switching, six-project wraparound, keyboard focus, mouse dragging, CDP touch swiping, opening projects, nested route language switching, main navigation and contact destinations.
+- Contact statement verified as two lines, with the approved exact Arabic wording and rust-colored second line. Latin punctuation order was measured in the actual browser.
+- Reduced motion was tested at initial load and when toggling the preference. A real bug was found: ScrollTrigger restores an inline `scroll-behavior:smooth` after preference changes. The reduced-motion rule now overrides that inline value. The regression passed on desktop and mobile.
+- Source review found two mobile-menu issues, now corrected: landscape overflow and selecting the already-open route without closing the menu.
+- Twenty real screenshots were captured after fonts, visible images and entrance/scroll animations settled. Arabic views were visually reviewed by the main agent; English views and the contact section at 320/390/1440px were independently inspected. No clipping, collisions, missing images or unintended page overflow was observed in those captures.
+- Footer email/WhatsApp touch targets measured 44px high. Contact-page email targets measured 77–101px in the diagnostic review.
 
-## Published release
+## Evidence and limits
 
-- Production: https://razan-portfolio-kappa.vercel.app
-- Source: https://github.com/razan-adil/razan-portfolio
-- Public production alias returns HTTP 200 without authentication.
-- The 5 HTTP test groups also passed against the public production site (all 24 localized pages).
-- Production sitemap and social image use the correct Vercel production domain.
-- 16 public JavaScript, stylesheet and image endpoints were checked, including Next.js image optimization.
-- npm production dependency audit: 0 reported vulnerabilities.
-- The initial automatic GitHub/Vercel connection attempt failed; CLI deployment works. Automatic deployments on push are not claimed.
+- Jobs uses two authentic captures of the public opportunities board and one public detail page, with scoped front-end contribution captions. No sign-in, application submission or internal dashboard access was used.
+- DClean displays public fictional-demo images and team attribution. Road Accident Severity Classification displays a verbatim, attributed source excerpt without invented evaluation results.
+- Leadership screenshots from the original product are not presented as Razan’s redesign.
+- Remaining authentic media is itemized in `media-needed.md`; provenance is in `sources-research.md`.
+- Mobile checks use browser device emulation, not physical phone hardware. Safari and Firefox were not tested.
+- Browser reports, traces and screenshots are under ignored `artifacts/`. They are verification artifacts, not product assets.
+- CLI deployment works. Automatic deployments on GitHub push are not claimed because the initial provider connection failed.

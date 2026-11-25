@@ -26,20 +26,51 @@ The user explicitly approved publishing razanadil7890@gmail.com, +966502882129, 
 
 ## Downloaded authentic assets
 
-All assets were downloaded from public URLs and visually inspected. None were generated or altered.
+All assets come from public URLs and were visually inspected. Product screenshots are authentic public captures or repository previews. No interface content was reconstructed or altered.
 
 | Local asset | Original source | Inspection |
 | --- | --- | --- |
 | `public/projects/dclean-dashboard.png` | <https://github.com/user-attachments/assets/b520182b-5324-43e1-b7d7-023ad5841f1d> — embedded in DClean README | 1600 × 725. Actual dark Streamlit interface, synthetic `demo_workshop.csv` upload, row/column counts and schema strategy. No personal records visible. |
 | `public/projects/dclean-validation.png` | <https://github.com/user-attachments/assets/6b60b131-d7e1-4aad-bfe6-3ca238a99e95> — embedded in DClean README | 1599 × 849. Actual quarantine output worksheet with rejection codes. Personal fields in the shown rejected record are blank. README confirms fictional demo data and reserved example.com addresses. |
 | `public/projects/wjih-logo-white.png` | <https://jobs.wjihub.com/images/wjih-logo-white.png> — referenced by public board HTML | 1246 × 482. Public WJIH brand mark with Arabic/English organization name. Use as a brand mark, not a screenshot of project work. |
+| `public/projects/jobs-board-desktop.png` | <https://jobs.wjihub.com/board> | 1440 × 1100. Actual public Arabic opportunities board, including all five listing cards and filters. Captured and visually inspected on 26 November 2026. |
+| `public/projects/jobs-detail-desktop.png` | <https://jobs.wjihub.com/positions/635db442-a3c0-41f1-8b75-87d056bf1476> | 1440 × 1100. Actual public PARKINZI data analysis and growth strategies internship detail page, including description, opportunity metadata and application entry point. Captured and visually inspected on 26 November 2026. |
 
 ## Assets still missing
 
-- Jobs Platform screenshot supplied or explicitly approved for capture through an available permitted browser workflow.
 - Wajeeh public or approved sanitized preview.
 - Founders assessment **redesign** preview; the original product does not fill this gap.
 - Sanitized Power BI dashboard preview.
 - Road accident saved output plot or approved report screenshot.
 
 An intentional branded cover or clearly identified diagram can accompany confidential work. It must not resemble a purported authentic screenshot or imply measured results that were not provided.
+
+## Evidence update — 26 November 2026
+
+`lib/evidence.ts` contains bilingual, typed evidence for the two existing DClean images, two actual public Jobs screenshots and a 19-line exact road accident source excerpt. The excerpt was checked against lines 84–102 at revision `12f7c675604e1561ef9abcd083059d2db8c5ae7d`; the adjacent Phase 2 heading at lines 58–64 credits Razan Adil. Both links are pinned to that revision.
+
+The academic source applies scaling before its train/test split. Present the excerpt as the original contribution, without claiming production validation, leakage-free evaluation, improved accuracy or a measured outcome. No model output chart has been generated for the portfolio.
+
+DClean image dimensions were verified from the actual files. The downloaded attachments contain JPEG image data under the existing `.png` filenames; the files and application references have not been changed. The README additionally offers before-cleaning, after-cleaning and audit-summary demo images, but these were not added to `lib/evidence.ts`.
+
+The public GitHub account currently lists DClean, road-accident-severity-ml, the profile repository and this portfolio. No additional approved WJIH product source or preview was found there.
+
+Public opportunity destinations parsed from the Jobs Platform board HTML, for a later permitted capture workflow:
+
+- [PARKINZI — تحليل البيانات واستراتيجيات النمو](https://jobs.wjihub.com/positions/635db442-a3c0-41f1-8b75-87d056bf1476)
+- [منصة قطعة — Backend Developer](https://jobs.wjihub.com/positions/c43033d5-2c9f-46fa-9b09-598d1827d2c1)
+
+| Project | Remaining image evidence |
+| --- | --- |
+| Wadi Jeddah Jobs Platform | Public board and opportunity detail screenshots are now available. Private user/admin screens would still need an explicitly approved sanitized preview. |
+| Wajeeh AI Agent | An approved sanitized actual interface or conversation preview. No public source was found. |
+| Founders Leadership Assessment | Razan's actual redesigned start, question and result screens. The original product cannot establish her redesign. |
+| Wadi Jeddah Dashboard | An approved sanitized Power BI screenshot with no internal records. No public dashboard source was found. |
+| DClean | No blocking gap: actual dashboard and validation evidence are available. Other public demo screenshots are optional. |
+| Road Accident Severity Classification | Source evidence is available. A genuine saved output plot/report would require an additional artifact; no saved result image or score was found in the public repository. |
+
+### Authorized public Jobs capture
+
+After the user explicitly authorized local Playwright, the public board and one public opportunity detail page were captured using a fresh headless Microsoft Edge context with no personal profile. The source pages were not altered. Capture waited for document fonts, image decoding and network settling; both desktop pages reported loaded fonts and zero broken images. No sign-in pages, private dashboards, application submissions or internal APIs were accessed.
+
+The two inspected desktop screenshots are included in `lib/evidence.ts`, with captions limited to Razan's supplied listing and detail front-end contributions. Separate 390 × 844 mobile captures were inspected and kept only in ignored `artifacts/jobs/`. The repeatable capture script is ignored at `.local/capture-public-jobs.mjs`. These screenshots establish public interface appearance at capture time, without establishing database implementation or private dashboard ownership.

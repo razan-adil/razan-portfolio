@@ -36,18 +36,18 @@ export default function Header({locale}: {locale:Locale}) {
     return ()=>{window.removeEventListener('keydown',escape);cancelAnimationFrame(frame);document.body.style.overflow=previousOverflow;toggleRef.current?.focus({preventScroll:true});};
   },[open]);
   return <header ref={headerRef} className={`header ${open ? 'menu-is-open' : ''}`}>
-    <Link className="wordmark" href={`/${locale}`} aria-label={ar ? 'رزان عادل — الرئيسية' : 'Razan Adil — Home'}>razan<span className="wordmark-star" aria-hidden>✳</span></Link>
+    <Link className="wordmark" href={`/${locale}`} lang="en" dir="ltr" aria-label={ar ? 'رزان عادل — الرئيسية' : 'Razan Adil — Home'}>razan<span className="wordmark-star" aria-hidden>✳</span></Link>
     <nav aria-label={ar ? 'التنقل الرئيسي' : 'Main navigation'} className="desktop-nav">
       {(['work','about','contact'] as const).map((item,i)=><Link key={item} href={`/${locale}/${item}`} aria-current={path===`/${locale}/${item}` ? 'page' : undefined}>{(ar?['الأعمال','عنّي','تواصل']:['Work','About','Contact'])[i]}</Link>)}
     </nav>
     <div className="header-actions">
-      <Link className="language-switch" href={otherPath} hrefLang={ar?'en':'ar'} lang={ar?'en':'ar'} aria-label={ar?'Switch to English':'التبديل إلى العربية'}>{ar?'EN':'عربي'}</Link>
+      <Link className="language-switch" href={otherPath} hrefLang={ar?'en':'ar'} lang={ar?'en':'ar'} dir={ar?'ltr':'rtl'} aria-label={ar?'Switch to English':'التبديل إلى العربية'}>{ar?'EN':'عربي'}</Link>
       <button ref={toggleRef} className="menu-toggle" aria-expanded={open} aria-controls={open?'mobile-menu':undefined} onClick={()=>setOpen(!open)}>{open ? (ar?'إغلاق':'Close') : (ar?'القائمة':'Menu')}<span aria-hidden className={open?'menu-icon open':'menu-icon'}><i/><i/></span></button>
     </div>
     {open && <nav id="mobile-menu" className="mobile-nav" data-lenis-prevent aria-label={ar?'القائمة':'Menu'}>
-      {(['work','about','contact'] as const).map((item,i)=><Link key={item} href={`/${locale}/${item}`}>{(ar?['الأعمال','عنّي','تواصل']:['Work','About','Contact'])[i]}</Link>)}
-      <Link className="mobile-beyond" href={`/${locale}/beyond`}>{ar?'خارج إطار المشاريع':'Beyond Projects'}</Link>
-      <span>Jeddah, Saudi Arabia</span>
+      {(['work','about','contact'] as const).map((item,i)=><Link key={item} href={`/${locale}/${item}`} onClick={()=>setOpen(false)}>{(ar?['الأعمال','عنّي','تواصل']:['Work','About','Contact'])[i]}</Link>)}
+      <Link className="mobile-beyond" href={`/${locale}/beyond`} onClick={()=>setOpen(false)}>{ar?'خارج إطار المشاريع':'Beyond Projects'}</Link>
+      <span lang="en" dir="ltr">Jeddah, Saudi Arabia</span>
     </nav>}
   </header>;
 }
